@@ -87,7 +87,7 @@ def returnDifference():                                                         
     else:
         diff = cv2.absdiff(bckimg.astype("uint8"), roi)                      #takes difference with those averaged pics
         diff = cv2.threshold(diff, 20, 255, cv2.THRESH_BINARY)[1]            #thresholding GRAY img
-7        diff = cv2.morphologyEx(diff, cv2.MORPH_OPEN, kernalOpen)            #MORPHING for ignoring small dots
+        diff = cv2.morphologyEx(diff, cv2.MORPH_OPEN, kernalOpen)            #MORPHING for ignoring small dots
         diff = cv2.morphologyEx(diff, cv2.MORPH_CLOSE, kernalClose)          #filling blank space in hand
         diff = cv2.resize(diff, (350, 350))
         return diff
@@ -171,7 +171,7 @@ if __name__ == "__main__":
         
         if diffImg is not None:
             cv2.imshow('differenceImage', diffImg)
-            diffImg = cv2.resize(diffImg, (64, 64))
+            diffImg = cv2.resize(diffImg, (128, 128))
         
         keyPressed = cv2.waitKey(1) & 0xFF                                       #ESC key to terminate and 0xFF for 64-bit computers
         
